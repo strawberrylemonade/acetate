@@ -30,3 +30,19 @@ jobs:
           cd functions &&
           npm i &&
           npm run build
+          
+      - name: Prepare files
+        run: |
+          rsync -a --exclude-from='.funcignore' . package/
+          
+      - uses: papeloto/action-zip@v1
+        with:
+          files: package/
+          dest: package.zip
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          path: package.zip
+          
+      
