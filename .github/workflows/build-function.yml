@@ -32,8 +32,7 @@ jobs:
           npm run build
           
       - name: Prepare files
-        run: |
-          rsync -a --exclude-from='.funcignore' . package/
+          rsync -a --exclude-from='functions/.funcignore' functions/ package/
           
       - uses: papeloto/action-zip@v1
         with:
