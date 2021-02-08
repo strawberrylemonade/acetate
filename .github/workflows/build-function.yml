@@ -29,4 +29,7 @@ jobs:
       - name: Install Azure Function core tools
         run: | 
           cd functions &&
-          npm i -g azure-functions-core-tools@3 --unsafe-perm true
+          npm i azure-functions-core-tools@3 --unsafe-perm true
+          
+      - name: Install Azure Function core tools
+        run: npx func
